@@ -1,50 +1,29 @@
-function playGround(playerchoice,computerchoice){
-    playerchoice = playerchoice.toUpperCase();
-    if(playerchoice=="ROCK"){
-        if(computerchoice=="ROCK"){
-            return "It's a draw!"
-        }
-        if(computerchoice=="PAPER"){
-            return "You LOSE! Computer chose "+computerchoice
-        }
-        else{
-            return "You WIN! Computer chose "+computerchoice
-        }
-    }
-    if(playerchoice=="PAPER"){
-        if(computerchoice=="PAPER"){
-            return "It's a draw!"
-        }
-        if(computerchoice=="SCISSOR"){
-            return "You LOSE! Computer chose "+computerchoice
-        }
-        else{
-            return "You WIN! Computer chose "+computerchoice
-        }
-    }
-    if(playerchoice=="SCISSOR"){
-        if(computerchoice=="SCISSOR"){
-            return "It's a draw!"
-        }
-        if(computerchoice=="ROCK"){
-            return "You LOSE! Computer chose "+computerchoice
-        }
-        else{
-            return "You WIN! Computer chose "+computerchoice
-        }
+function playGround(playerChoice, computerChoice) {
+    if (playerChoice === computerChoice) {
+        return "It's a draw!";
+    } 
+    if (
+        (playerChoice === "ROCK" && computerChoice === "SCISSORS") ||
+        (playerChoice === "PAPER" && computerChoice === "ROCK") ||
+        (playerChoice === "SCISSORS" && computerChoice === "PAPER")
+    ) {
+        return "You WIN! Computer chose " + computerChoice ;
+    } 
+    else {
+        return "You LOSE! Computer chose "+ computerChoice ;
     }
 }
 
 let choices = ["ROCK", "PAPER", "SCISSOR"];
 
 while (true) {
-    let computerchoice = choices[Math.floor(Math.random() * 3)];
-    let playerchoice = prompt("What do you choose? Type 'exit' to end the game.");
+    let computerChoice = choices[Math.floor(Math.random() * 3)];
+    let playerChoice = prompt("What do you choose? Type 'exit' to end the game.");
 
     // Check if the player wants to exit
-    if (playerchoice.toLowerCase() === 'exit') {
-        break; // Exit the loop
+    if (playerChoice.toLowerCase() === 'exit') {
+        break;
     }
 
-    console.log(playGround(playerchoice, computerchoice));
+    console.log(playGround(playerChoice, computerChoice));
 }
