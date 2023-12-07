@@ -1,5 +1,5 @@
 function playGround(playerchoice,computerchoice){
-    playerchoice.toUpperCase();
+    playerchoice = playerchoice.toUpperCase();
     if(playerchoice=="ROCK"){
         if(computerchoice=="ROCK"){
             return "It's a draw!"
@@ -15,7 +15,7 @@ function playGround(playerchoice,computerchoice){
         if(computerchoice=="PAPER"){
             return "It's a draw!"
         }
-        if(computerchoice=="ROCK"){
+        if(computerchoice=="SCISSOR"){
             return "You LOSE! Computer chose "+computerchoice
         }
         else{
@@ -26,7 +26,7 @@ function playGround(playerchoice,computerchoice){
         if(computerchoice=="SCISSOR"){
             return "It's a draw!"
         }
-        if(computerchoice=="PAPER"){
+        if(computerchoice=="ROCK"){
             return "You LOSE! Computer chose "+computerchoice
         }
         else{
@@ -35,9 +35,16 @@ function playGround(playerchoice,computerchoice){
     }
 }
 
-let choices = ["ROCK","PAPER","SCISSOR"];
-let computerchoice = choices[(Math.floor(Math.random(1, 5))) - 1];
+let choices = ["ROCK", "PAPER", "SCISSOR"];
 
-let playerchoice = prompt("What do you choose?")
+while (true) {
+    let computerchoice = choices[Math.floor(Math.random() * 3)];
+    let playerchoice = prompt("What do you choose? Type 'exit' to end the game.");
 
-console.log(playGround(playerchoice,computerchoice));
+    // Check if the player wants to exit
+    if (playerchoice.toLowerCase() === 'exit') {
+        break; // Exit the loop
+    }
+
+    console.log(playGround(playerchoice, computerchoice));
+}
