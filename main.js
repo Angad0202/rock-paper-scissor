@@ -1,11 +1,12 @@
 function playGround(playerChoice, computerChoice) {
-    if (playerChoice === computerChoice) {
+    playerChoice = playerChoice.toUpperCase();
+    if (playerChoice == computerChoice) {
         return "It's a draw!";
     } 
     if (
-        (playerChoice === "ROCK" && computerChoice === "SCISSORS") ||
-        (playerChoice === "PAPER" && computerChoice === "ROCK") ||
-        (playerChoice === "SCISSORS" && computerChoice === "PAPER")
+        (playerChoice == "ROCK" && computerChoice == "SCISSORS") ||
+        (playerChoice == "PAPER" && computerChoice == "ROCK") ||
+        (playerChoice == "SCISSORS" && computerChoice == "PAPER")
     ) {
         return "You WIN! Computer chose " + computerChoice ;
     } 
